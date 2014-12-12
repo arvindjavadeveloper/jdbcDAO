@@ -16,7 +16,6 @@ public class MainTest {
     @org.junit.Test
     public void testConnection() {
 	Main obj = new Main();
-	System.out.println("Connectino null");
 	Assert.assertNotNull(obj.showDbCatlog());
     }
 

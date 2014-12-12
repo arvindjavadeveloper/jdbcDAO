@@ -10,6 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
+    private ApplicationContext applicationContext;
+    
     public static void main(String[] args) {
 	Main main = new Main();
 	main.showDbCatlog();
@@ -27,8 +29,6 @@ public class Main {
 	
     }
 
-    private ApplicationContext applicationContext;
-    
     public Main() {
 	applicationContext = new ClassPathXmlApplicationContext("applicationContext-datasource.xml");
     }
