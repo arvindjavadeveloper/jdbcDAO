@@ -1,0 +1,47 @@
+Data Access with JDBC using Spring Framework
+
+Benefits of using JDBC Data Access
+Spring does many of the low-level work related to database.
+Spring handles to Opening the database connection.
+prepare and execute the statements.
+Loop through the ResultSet to return Collections.
+Exception Handling if any occurs.
+Handling Transaction.
+Closing connection, statement, resultset, etc.
+
+As an application developer you only need do database connection parameters, and business logic.
+
+Various Approaches to access JDBC database.
+JdbcTemplate : It is a lowest-level approach, which is used in most of cases. All other approaches are under JdbcTemplate.
+============
+NamedParameterJdbcTemplate : This template extends the JdbcTemplate and ease of use if have multiple parameters. 
+	It provides named parameter rather than traditional Jdbc. 
+
+SimpleJdbcInsert and SimpleJdbcCall : This approach is good in terms of Database metadata optimization. It ease the coding only table name, map or procedure need to supply.
+	This is only works when database provides sufficient metadata else it is required to provide explicitly by parameters.
+	
+RDBMS Objects (MappingSqlQuery, SqlUpdate, StoredProcedure) : This approved is designed after JDO query. Here we required to define query string, declared parameters, query.
+	Once definition done, executes method call multiple times based on supplied various parameters.
+
+Use of JdbcTemplate :
+	JdbcTemplate handles the core functionality of JDBC Data access. Creation and release of Resource or connection.
+	Statement creation, execution and closing also handled by JdbcTemplate. It is also responsible for SQL query execution, update statement, procedure/function call, iterations on ResultSet.
+	It also handles the exception and translates into generic exception from Jdbc support package.
+	
+Best Practices to use JdbcTemplate:
+	JdbcTemplate's objects are thread safe. That means better practice to configure only single instance of JdbcTemplate and inject in different DAO's or repositories.
+	Best practice to use JdbcTemplate class and its subclasses such as NamedParameterJdbcTemplate, SimpleJdbcInsert, SimpleJdbcCall is to configure Datasource only once. and inject Datasource into DAO's or Repositories.
+	If you are using Annotation based configuration then, For annotated class you must use @Repository, which help to scan the component. for setter method of DataSource @Autowired annotation can be used.
+	
+	If you use JdbcDaoSupport and your jdbc Dao classes extends from the JdbcDaoSuppot. then your DAO classes will inherit setDataSource method from JdbcDaoSupport.
+	It is rarely required to create new instance of the JdbcTemplate.
+	
+
+
+NamedParameterJdbcTemplate:
+===========================
+	NamedParameterJdbcTemplate add supports to JdbcTemplate, it uses named parameter rather then normal placeholder (?) only.
+	 
+
+
+
