@@ -3,8 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+	<bean class="com.aic.common.dao.jdbc.impl.SimpleJdbcTemplateDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean class="com.aic.common.dao.jdbc.impl.SimpleNamedParameterJdbcTemplateDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
 	<!-- spring-jdbc jar is required here -->
-	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
